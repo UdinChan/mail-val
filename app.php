@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 $file = explode('\r\n', file_get_contents($argv[1]) or die('File not found!'));
 $file = array_unique($file);
 $total = count($file);
-class asu {
+class curl {
     var $ch, $agent, $error, $info, $cookiefile, $savecookie;
     function curl() {
         $this->agent = $this->get_agent(rand(0, 44));
