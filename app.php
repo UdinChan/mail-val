@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 $file = explode('\r\n', file_get_contents($argv[1]) or die('File not found!'));
 $file = array_unique($file);
 $total = count($file);
-class curl {
+class asu {
     var $ch, $agent, $error, $info, $cookiefile, $savecookie;
     function curl() {
         $this->agent = $this->get_agent(rand(0, 44));
@@ -263,13 +263,13 @@ for ($i=0; $i < $total; $i++) {
 	$result = $curl->post($url, $post);
 	$page = json_decode($result);
 	if ($page->valid == true && $page->used == true) {
-		echo "[".$curl->http_code()."] VALID $result\n";
+		echo "[".$curl->http_code()."] VALID\n";
 		saved('valid-apple.txt', 'valid => '.$file[$i].'\r\n');
 	} else if($page->valid == true && $page->used == false) {
-		echo "[".$curl->http_code()."] INVALID $result\n";
+		echo "[".$curl->http_code()."] INVALID\n";
 		saved('invalid-apple.txt', 'invld => '.$file[$i].'\r\n');
 	} else {
-		echo "[".$curl->http_code()."] UNKNOWN $result\n";
+		echo "[".$curl->http_code()."] UNKNOWN\n";
 		saved('unkn-apple.txt', 'unknw => '.$file[$i].'\r\n');
 	}
 }
